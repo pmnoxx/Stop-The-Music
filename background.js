@@ -22,14 +22,20 @@ function process() {
 			}
 			playing=false;
 		} else {	//If we're not playing, start the first youtube video there is and change the icon
-			chrome.browserAction.setIcon({path: "stopIcon.png"});
 			for (var i = 0; i  <tabs.length; i++) {
-                chrome.tabs.executeScript(tabs[tabs.length-1].id, {
-                    "file": "playScript.js",
-                    "allFrames": true
-                }, function () {} );
+                url = tabs[i].url
+
+                if (url.includes("youtube") || url.includes("crunchyroll.com") || url.includes("nikoniko")) {
+                    chrome.browserAction.setIcon({path: "stopIcon.png"});
+                        // tabs.length-1
+                        chrome.tabs.executeScript(tabs[i].id, {
+                            "file": "playScript.js",
+                            "allFrames": true
+                        }, function () {} );
+                    playing=true;
+                    break;
+                }
             }
-			playing=true;
 		}
 	});
 }
