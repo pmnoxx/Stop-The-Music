@@ -1,27 +1,27 @@
 {
 	"manifest_version": 2,
-	
-	"name": "Stop the Music",
-	"description": "Pauses all playing YouTube videos.",
+
+	"name": "Stop the Music /pmnox",
+	"description": "Pauses all playing YouTube videos. /pmnox",
 	"version": "1.0",
-	"author": "Roxton Labs",
-	
+	"author": "pmnox",
+
 	"browser_action": {
 		"default_icon": "stopIcon.png",
 		"default_title": "Click to pause/resume background YouTube Videos.\nRight-click to set keyboard shortcut."
 	},
-	
+
 	"background":{
 	    "scripts":["background.js"]
 	},
-	
+
 	"permissions": [
 		"activeTab",
 		"contextMenus",
 		"tabs",
 		"http://*/*", "https://*/*"
 	],
-	
+
 	"commands": {
 	   "stop-the-music": {
 	       "suggested_key": {
@@ -29,6 +29,6 @@
 	       },
 	       "description": "Pauses/resumes background YouTube videos.",
 	       "global": true
-	   }   
+	   }
 	}
 }

@@ -1,5 +1,6 @@
 //Play the video
-var actualCode = 'document.getElementById("movie_player").playVideo();';
+var actualCode = 'document.getElementsByTagName("video")[0].play();';
+console.log('play');
 var script = document.createElement('script');
 script.textContent = actualCode;
 (document.head||document.documentElement).appendChild(script);

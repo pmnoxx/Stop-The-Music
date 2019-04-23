@@ -1,5 +1,7 @@
 //Pause the video
-var actualCode = 'document.getElementById("movie_player").pauseVideo();';
+var actualCode = 'document.getElementsByTagName("video")[0].pause();';
+
+console.log("pause")
 var script = document.createElement('script');
 script.textContent = actualCode;
 (document.head||document.documentElement).appendChild(script);

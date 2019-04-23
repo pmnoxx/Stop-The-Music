@@ -7,8 +7,9 @@ chrome.contextMenus.create({
         chrome.tabs.create({url:'chrome://extensions/configureCommands'});
       }
 });
-chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Clicks ICON	
-	chrome.tabs.query( {url: "https://www.youtube.com/*"} , function (tabs) {
+chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Clicks ICON
+	//chrome.tabs.query( {url: "https://www.youtube.com/*"} , function (tabs) {
+	chrome.tabs.query( {url: "https://*/*"} , function (tabs) {
 		if (playing)
 		{	//If we're playing, stop all videos, change the icon to the "play" icon, and set playing to false
 			chrome.browserAction.setIcon({path: "playIcon.png"});
@@ -21,10 +22,11 @@ chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Cl
 			chrome.tabs.executeScript(tabs[tabs.length-1].id, {"file": "playScript.js"}, function () {} );
 			playing=true;
 		}
-	});	
+	});
 });
 chrome.commands.onCommand.addListener(function(command) {	//Fired when user presses hotkey
-	chrome.tabs.query( {url: "https://www.youtube.com/*"} , function (tabs) {
+	//chrome.tabs.query( {url: "https://www.youtube.com/*"} , function (tabs) {
+	chrome.tabs.query( {url: "https://*/*"} , function (tabs) {
 		if (playing)
 		{	//If we're playing, stop all videos, change the icon to the "play" icon, and set playing to false
 			chrome.browserAction.setIcon({path: "playIcon.png"});
@@ -37,5 +39,5 @@ chrome.commands.onCommand.addListener(function(command) {	//Fired when user pres
 			chrome.tabs.executeScript(tabs[tabs.length-1].id, {"file": "playScript.js"}, function () {} );
 			playing=true;
 		}
-	});	
+	});
 });
