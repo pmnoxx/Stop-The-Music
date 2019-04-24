@@ -8,33 +8,36 @@ chrome.contextMenus.create({
       }
 });
 
+function is_good_url(url) {
+    return url.startsWith("https://www.youtube.com")
+        || url.startsWith("https://www.crunchyroll.com")
+        || url.startsWith("https://www.nikoniko.jp");
+}
+
 
 function process() {
 	chrome.tabs.query( {url: "https://*/*"} , function (tabs) {
 		if (playing)
 		{	//If we're playing, stop all videos, change the icon to the "play" icon, and set playing to false
 			chrome.browserAction.setIcon({path: "playIcon.png"});
-			for (var i = 0; i  <tabs.length; i++) {
-				chrome.tabs.executeScript(tabs[i].id, {
+            for (var i = 0; i < tabs.length; i++) {
+                if (!is_good_url(tabs[i].url)) continue;
+                chrome.tabs.executeScript(tabs[i].id, {
                     "file": "pauseScript.js",
                     "allFrames": true
                 }, function () {} );
-			}
-			playing=false;
+            }
+            playing=false;
 		} else {	//If we're not playing, start the first youtube video there is and change the icon
-			for (var i = 0; i  <tabs.length; i++) {
-                url = tabs[i].url
+			for (var i = 0; i < tabs.length; i++) {
+                if (!is_good_url(tabs[i].url)) continue;
 
-                if (url.includes("youtube") || url.includes("crunchyroll.com") || url.includes("nikoniko")) {
-                    chrome.browserAction.setIcon({path: "stopIcon.png"});
-                        // tabs.length-1
-                        chrome.tabs.executeScript(tabs[i].id, {
-                            "file": "playScript.js",
-                            "allFrames": true
-                        }, function () {} );
-                    playing=true;
-                    break;
-                }
+                chrome.browserAction.setIcon({path: "stopIcon.png"});
+                chrome.tabs.executeScript(tabs[i].id, {
+                        "file": "playScript.js",
+                        "allFrames": true
+                    }, function () {} );
+                playing=true;
             }
 		}
 	});
