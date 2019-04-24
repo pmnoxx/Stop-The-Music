@@ -23,9 +23,9 @@ function process() {
             for (var i = 0; i < tabs.length; i++) {
                 if (!is_good_url(tabs[i].url)) continue;
                 chrome.tabs.executeScript(tabs[i].id, {
-                    "file": "pauseScript.js",
-                    "allFrames": true
-                }, function () {} );
+                        "file": "pauseScript.js",
+                        "allFrames": true
+                    }, function () {} );
             }
             playing=false;
 		} else {	//If we're not playing, start the first youtube video there is and change the icon
