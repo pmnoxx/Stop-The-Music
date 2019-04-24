@@ -1,6 +1,6 @@
 //Play the video
 console.log('play');
-var actualCode = 'document.getElementsByTagName("video")[0].play(); document.getElementsByTagName("video")[0].textTracks[0].mode = "disabled" ';
+var actualCode = 'document.getElementsByTagName("video")[0].play();';
 
 
 var script = document.createElement('script');

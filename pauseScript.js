@@ -1,6 +1,6 @@
 //Pause the video
 console.log("pause")
-var actualCode = 'document.getElementsByTagName("video")[0].pause(); document.getElementsByTagName("video")[0].textTracks[0].mode = "disabled" ';
+var actualCode = 'document.getElementsByTagName("video")[0].pause();';
 
 var script = document.createElement('script');
 script.textContent = actualCode;
