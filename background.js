@@ -44,9 +44,42 @@ function process() {
 	});
 }
 
+function rewind() {
+	chrome.tabs.query( {url: "https://*/*"} , function (tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+            if (!is_good_url(tabs[i].url)) continue;
+
+            chrome.tabs.executeScript(tabs[i].id, {
+                    "file": "rewindScript.js",
+                    "allFrames": true
+                }, function () {} );
+        }
+	});
+}
+
+function fastForward() {
+	chrome.tabs.query( {url: "https://*/*"} , function (tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+            if (!is_good_url(tabs[i].url)) continue;
+
+            chrome.tabs.executeScript(tabs[i].id, {
+                    "file": "fastForwardScript.js",
+                    "allFrames": true
+                }, function () {} );
+        }
+	});
+}
 chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Clicks ICON
     process();
 });
 chrome.commands.onCommand.addListener(function(command) {	//Fired when user presses hotkey
-    process();
+    if (command == "stop-the-music") {
+        process();
+    }
+    else if (command == "rewind") {
+        rewind();
+    }
+    else {
+        fastForward();
+    }
 });

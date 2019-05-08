@@ -25,9 +25,23 @@
 	"commands": {
 	   "stop-the-music": {
 	       "suggested_key": {
-	           "default": "Ctrl+Shift+1"
+	           "default": "Ctrl+1"
 	       },
-	       "description": "Pauses/resumes background YouTube videos.",
+	       "description": "Pauses/resumes background YouTube videos!!!",
+	       "global": true
+	   },
+	   "rewind": {
+	       "suggested_key": {
+	           "default": "Ctrl+2"
+	       },
+	       "description": "Rewind video",
+	       "global": true
+	   },
+	   "fastforward": {
+	       "suggested_key": {
+	           "default": "Ctrl+3"
+	       },
+	       "description": "FastForward video",
 	       "global": true
 	   }
 	}
