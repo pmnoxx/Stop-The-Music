@@ -1,5 +1,5 @@
 //Play the video
-console.log('rewind');
+console.log('fastfoward');
 var actualCode = 'document.getElementsByTagName("video")[0].currentTime += 10;';
 
 

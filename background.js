@@ -38,8 +38,9 @@ function process() {
                         "file": "playScript.js",
                         "allFrames": true
                     }, function () {} );
-                playing=true;
+                break;
             }
+            playing=true;
 		}
 	});
 }
@@ -53,6 +54,7 @@ function rewind() {
                     "file": "rewindScript.js",
                     "allFrames": true
                 }, function () {} );
+            break;
         }
 	});
 }
@@ -66,6 +68,7 @@ function fastForward() {
                     "file": "fastForwardScript.js",
                     "allFrames": true
                 }, function () {} );
+            break;
         }
 	});
 }
@@ -79,7 +82,7 @@ chrome.commands.onCommand.addListener(function(command) {	//Fired when user pres
     else if (command == "rewind") {
         rewind();
     }
-    else {
+    else if (command == "fastforward") {
         fastForward();
     }
 });
