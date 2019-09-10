@@ -1,6 +1,6 @@
 //Pause the video
 console.log("pause")
-var actualCode = 'document.getElementsByTagName("video")[0].pause();';
+var actualCode = 'document.getElementsByTagName("video")[0].pause();document.getElementsByTagName("video")[0].style.zIndex = 333;document.getElementsByTagName("video")[0].controls = true;';
 
 var script = document.createElement('script');
 script.textContent = actualCode;
