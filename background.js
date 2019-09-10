@@ -10,13 +10,15 @@ chrome.contextMenus.create({
 
 function is_good_url(url) {
     return url.startsWith("https://animenetzone.com")
+        || url.startsWith("https://hidive.com")
+        || url.startsWith("https://www.hidive.com")
         || url.startsWith("https://www.audible.co.jp")
         || url.startsWith("https://www.crunchyroll.com")
         || url.startsWith("https://www.dailymotion.com")
         || url.startsWith("https://www.nikoniko.jp")
         || url.startsWith("https://www5.gogoanime.io")
         || url.startsWith("https://www.youtube.com")
-        || url.startsWith("https://hidive.com");
+;
 }
 
 
