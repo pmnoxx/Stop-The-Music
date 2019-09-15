@@ -18,7 +18,7 @@ function is_good_url(url) {
         || url.startsWith("https://www.nikoniko.jp")
         || url.startsWith("https://www5.gogoanime.io")
         || url.startsWith("https://www.youtube.com")
-        || url.startsWIth("https://www.funimation.com")
+        || url.startsWith("https://www.funimation.com")
 ;
 }
 
